@@ -28,9 +28,9 @@ Create a new *Viewpoint Specification Project* (man.em.nik.objinst.design).
 ### Overview of editor specification
 We have two layers - one for the pattern diagram and one for the instance.
 The pattern layer defines mappings or Container01, Object (pattern), and Relation
-The Instance layer reuses mappings from pattern layer for Container01, Object (pattern), and Relation and additionally define mappings for Object (instances) and realtions between instances and between instaces and pattern objects.
+The Instance layer reuses mappings from pattern layer for Container01, Object (pattern), and Relation. Additionally define mappings for Object (instances) and realtions between instances as well as between instaces and pattern objects.
 
 Mappings are rules that specify which semantic elements are displayed in the diagram and how.
-The main idea behind reusing mappings is that the layout of the pattern is preserved. (We could instead, and that might be a better way of doing it, create and independent layer or even a diagram and copy the layout of the pattern layer into the instance layer. That, however, is requires more work.)
+The main idea behind reusing mappings is that the layout of the pattern is preserved. (We could instead, and that might be a better way of doing it, create and independent layer or even a diagram and copy the layout of the pattern layer into the instance layer. That, however, requires more work.)
 
 TODO: ...
