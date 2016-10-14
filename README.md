@@ -9,7 +9,7 @@ Create a new *Ecore Modeling Project* (man.em.nik.objinst.mm). You can then use 
 Reload the *genmodel file and generate Model, Edit, and Editor code. Refer to EFM documentation for working with Ecore.
 
 The metamodel is defined in Ecore as follows:
-<img src="" />
+<img src="doc/img/objinst_mm.png" />
 The root element is Container0. Contains one or more Container01 objects.
 Container01 has two containment references:
  - *objects* holds a list of Objects which (with their respective relations) is essentially the pattern
