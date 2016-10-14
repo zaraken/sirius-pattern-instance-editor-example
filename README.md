@@ -12,8 +12,8 @@ The metamodel is defined in Ecore as follows:
 <img src="" />
 The root element is Container0. Contains one or more Container01 objects.
 Container01 has two containment references:
- - objects holds a list of Objects which (with their respective relations) is essentially the pattern
- - instances holds a list of Objects each of which references Objects from the "objects" list
+ - *objects* holds a list of Objects which (with their respective relations) is essentially the pattern
+ - *instances* holds a list of Objects each of which references Objects from the "objects" list
 Object is a class that represents the Nodes in our class diagram. Although the metamodel does not enforce it, Objects in the "objects" list  are part of the pattern and are considered to be an InstaceType (It can be instantiated) and must therefore not have an instanceType. It will, however have zero or more "children" (instances). Respectively, Objects in the "instances" list are instances of Objects in the "objects" list and must have (reference) an instanceType and have no children.
 Relations are contained in Objects and represent the connections in our diagram. 
 Although relations cannot be explicitely instantiated they are replicated when instantiating an object.
