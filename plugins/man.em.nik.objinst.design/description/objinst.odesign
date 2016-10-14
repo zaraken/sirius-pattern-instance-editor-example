@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="objinst" version="11.0.0.201601261200">
+  <ownedViewpoints name="man.em.nik.objinst.patterndefinst">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="patterndefinst" initialisation="true" domainClass="objinst.Container0" enablePopupBars="true">
+      <metamodel href="../../man.em.nik.objinst.mm/model/objinst.ecore#/"/>
+      <filters xsi:type="filter:CompositeFilterDescription" name="pdiHidePatternObjectWhenInstance">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject_imp_pdiPatternObject']" semanticConditionExpression="[self.children->size()=0/]"/>
+      </filters>
+      <concerns>
+        <ownedConcernDescriptions name="pdiActivateFilter" filters="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@filters[name='pdiHidePatternObjectWhenInstance']"/>
+      </concerns>
+      <diagramInitialisation>
+        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+          <subModelOperations xsi:type="tool:ExternalJavaAction" name="printVar" id="org.eclipse.sirius.business.api.action.printVariables"/>
+        </firstModelOperations>
+      </diagramInitialisation>
+      <defaultLayer name="Default"/>
+      <additionalLayers name="pdiPattern" activeByDefault="true">
+        <edgeMappings name="pdiPatternRelation" sourceMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@containerMappings[name='pdiPatternContainer']/@subNodeMappings[name='pdiPatternObject']" targetMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@containerMappings[name='pdiPatternContainer']/@subNodeMappings[name='pdiPatternObject']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="objinst.Relation" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="[self.name + '_pdiPatternRelation'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="pdiPatternContainer" semanticCandidatesExpression="feature:container01" domainClass="Container01">
+          <subNodeMappings name="pdiPatternObject" semanticCandidatesExpression="feature:objects" domainClass="objinst.Object">
+            <style xsi:type="style:SquareDescription" labelExpression="[self.name + '\n_pdiPatternObject'/]" labelPosition="node" resizeKind="NSEW" width="20" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="pdiPatternContainer">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="pdiPatternTools">
+          <ownedTools xsi:type="tool_1:ContainerCreationDescription" name="pdiPatternContainerCreationTool" containerMappings="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@containerMappings[name='pdiPatternContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Container01" referenceName="container01"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="pdiPatternNodeCreationTool" nodeMappings="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@containerMappings[name='pdiPatternContainer']/@subNodeMappings[name='pdiPatternObject']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Object" referenceName="objects">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Obj_' + container.objects->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="pdiPatternRelationCreationTool" edgeMappings="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@edgeMappings[name='pdiPatternRelation']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Relation" referenceName="relations">
+                <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[source.name + ' to ' + target.name/]"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
+                <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="pdiInstantiation">
+        <edgeMappings name="pdiInstanceObjectRelation" sourceMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject']" targetMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="objinst.Relation" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <centerLabelStyleDescription labelExpression="[self.name + '_pdiInstanceObjectRelation'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="pdiInstanceObjectRelationPatternToInstance" sourceMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject_imp_pdiPatternObject']" targetMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject']" targetFinderExpression="[self.target.children/]" sourceFinderExpression="[self.source/]" domainClass="objinst.Relation" useDomainElement="true">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="[self.name + '_pdiInstanceObjectRelation'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="pdiInstanceObjectRelationInstanceToPattern" sourceMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject']" targetMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject_imp_pdiPatternObject']" targetFinderExpression="[self.target/]" sourceFinderExpression="[self.source.children/]" domainClass="objinst.Relation" useDomainElement="true">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="[self.name + '_pdiInstanceObjectRelation'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="pdiInstanceObjectRelationPatternToPattern" sourceMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject_imp_pdiPatternObject']" targetMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject_imp_pdiPatternObject']" targetFinderExpression="[self.target/]" sourceFinderExpression="[self.source/]" domainClass="objinst.Relation" useDomainElement="true">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="[self.name + '_pdiInstanceObjectRelation'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="pdiInstanceContainer_imp_pdiPatternContainer" semanticCandidatesExpression="feature:container01" domainClass="objinst.Container01" importedMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@containerMappings[name='pdiPatternContainer']">
+          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="pdiInstanceObject_imp_pdiPatternObject" semanticCandidatesExpression="feature:objects" domainClass="objinst.Object" importedMapping="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiPattern']/@containerMappings[name='pdiPatternContainer']/@subNodeMappings[name='pdiPatternObject']">
+            <style xsi:type="style:SquareDescription" labelExpression="[self.name + '\n_pdiInstanceObject_imp_pdiPatternObject'/]" labelPosition="node" resizeKind="NSEW" width="20" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="pdiInstanceObject" deletionDescription="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@toolSections.0/@ownedTools[name='pdiInstanceDeleteNode']" semanticCandidatesExpression="feature:instances" domainClass="objinst.Object">
+            <style xsi:type="style:SquareDescription" labelExpression="[self.name + '\n&lt;' + self.instanceType.name + '>\n_pdiInstanceObject'/]" labelPosition="node" resizeKind="NSEW" width="15" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="pdiInstanceContainer_imp_pdiPatternContainer">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="pdiInstanceTools">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="pdiInstanceNodeCreationTool" precondition="[container.oclIsKindOf(Object)/]" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject']" extraMappings="//@ownedViewpoints[name='man.em.nik.objinst.patterndefinst']/@ownedRepresentations[name='patterndefinst']/@additionalLayers[name='pdiInstantiation']/@containerMappings[name='pdiInstanceContainer_imp_pdiPatternContainer']/@subNodeMappings[name='pdiInstanceObject_imp_pdiPatternObject']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.eContainer()/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Object" referenceName="instances">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Inst_' + container.oclAsType(Object).children->size()+1/]"/>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[container.oclAsType(Object).instanceType.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="instanceType" valueExpression="var:container"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[not container.oclAsType(Object).instanceType.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="instanceType" valueExpression="[container.oclAsType(Object).instanceType/]"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:For" expression="[instance.instanceType.relations/]">
+                    <subModelOperations xsi:type="tool:For" expression="[i.oclAsType(Relation).target.children/]" iteratorName="j">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Relation" referenceName="relations" variableName="relInstance">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[i.oclAsType(Relation).name/]"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:j"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:For" expression="[instance.instanceType.referencedBy/]">
+                    <subModelOperations xsi:type="tool:For" expression="[i.oclAsType(Relation).source.children/]" iteratorName="j">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:j">
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Relation" referenceName="relations" variableName="relInstance">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[i.oclAsType(Relation).name/]"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:instance"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="printVar" id="org.eclipse.sirius.business.api.action.printVariables"/>
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="ViewRecorderAction" id="man.em.nik.objinst.design.SourceViewRecorderID">
+                  <parameters name="newElement" value="var:instance"/>
+                  <parameters name="sourceView" value="[containerView/]"/>
+                  <parameters name="sourceElement" value="var:container"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="pdiInstanceNodeCreationToolGeneral" precondition="[container.oclIsKindOf(Object)/]" forceRefresh="true">
+            <element name="element">
+              <subVariables xsi:type="tool:AcceleoVariable" name="container" computationExpression="var:element"/>
+            </element>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool:AcceleoVariable" name="containerView" computationExpression="var:elementView"/>
+            </elementView>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="[container.eContainer()/]">
+                <subModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Object" referenceName="instances">
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="['Inst_' + container.oclAsType(Object).children->size()+1/]"/>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[container.oclAsType(Object).instanceType.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="instanceType" valueExpression="var:container"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="[not container.oclAsType(Object).instanceType.oclIsUndefined()/]">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="instanceType" valueExpression="[container.oclAsType(Object).instanceType/]"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:For" expression="[instance.instanceType.relations/]">
+                    <subModelOperations xsi:type="tool:For" expression="[i.oclAsType(Relation).target.children/]" iteratorName="j">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance">
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Relation" referenceName="relations" variableName="relInstance">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[i.oclAsType(Relation).name/]"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:j"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:For" expression="[instance.instanceType.referencedBy/]">
+                    <subModelOperations xsi:type="tool:For" expression="[i.oclAsType(Relation).source.children/]" iteratorName="j">
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:j">
+                        <subModelOperations xsi:type="tool:CreateInstance" typeName="objinst.Relation" referenceName="relations" variableName="relInstance">
+                          <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="[i.oclAsType(Relation).name/]"/>
+                          <subModelOperations xsi:type="tool:SetValue" featureName="target" valueExpression="var:instance"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="printVar" id="org.eclipse.sirius.business.api.action.printVariables"/>
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="ViewRecorderAction" id="man.em.nik.objinst.design.SourceViewRecorderID">
+                  <parameters name="newElement" value="var:instance"/>
+                  <parameters name="sourceView" value="[containerView/]"/>
+                  <parameters name="sourceElement" value="var:container"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="pdiInstanceDeleteNode" precondition="[not self.oclAsType(Object).instanceType.oclIsUndefined()/]">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="element">
+                <subModelOperations xsi:type="tool:For" expression="[self.eInverse()->filter(Relation)/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="i">
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="pdiInstanceDeleteNodeGeneral" precondition="[not self.oclAsType(Object).instanceType.oclIsUndefined()/]">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="element">
+                <subModelOperations xsi:type="tool:For" expression="[self.eInverse()->filter(Relation)/]">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="i">
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="dummyLayer"/>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
