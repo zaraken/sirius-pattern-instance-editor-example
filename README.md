@@ -37,7 +37,7 @@ The main idea behind reusing mappings is that the layout of the pattern is prese
 
 Labels for elements include the name of the mapping so that it is easier to recognize which graphical element is contributed by which mapping.
 
-<img src="doc/img/specOverview.jpg" /> <br/>
+<img src="doc/img/specOvierview.jpg" /> <br/>
 
 ### pdiPattern
 
