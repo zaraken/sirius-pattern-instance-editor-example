@@ -5,7 +5,7 @@ The basic idea is to be able to create a pattern in the form of a (very simplifi
 This example is by no means complete or a good example of how such editor should be implemented. It is just a minimal example that demonstrates a lot of Sirius features.
 
 ## Metamodel
-Create a new *Ecore Modeling Project* (man.em.nik.objinst.mm). You can then use either the *Entities" representation (Sirius Perspective active) to graphically work with the model or use the *Sample Ecore Model Editor* for a tree view of the metamodel.
+Create a new *Ecore Modeling Project* (man.em.nik.objinst.mm). You can then use either the *Entities* representation (Sirius Perspective active) to graphically work with the model or use the *Sample Ecore Model Editor* for a tree view of the metamodel.
 Reload the *genmodel file and generate Model, Edit, and Editor code. Refer to EFM documentation for working with Ecore.
 
 The metamodel is defined in Ecore as follows:
