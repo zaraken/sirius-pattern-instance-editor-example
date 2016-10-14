@@ -1,6 +1,6 @@
 # SiriusPatternInstanceEditorExample
 This is an example Eclipse editor implemented with EMF and Sirius.
-The basic idea is to be able to create a pattern in the form of a (very simplified) class diagram and then instantiate elements from the pattern.
+The basic idea is to be able to create a pattern in the form of a (very simplified) class diagram and then instantiate elements from the pattern. One of the main challenges here is to preserve the (user-defined via point&click) layout of the pattern when instantiating (and deleting) objects.
 
 This example is by no means complete or a good example of how such editor should be implemented. It is just a minimal example that demonstrates a lot of Sirius features.
 
@@ -32,5 +32,19 @@ The Instance layer reuses mappings from pattern layer for Container01, Object (p
 
 Mappings are rules that specify which semantic elements are displayed in the diagram and how.
 The main idea behind reusing mappings is that the layout of the pattern is preserved. (We could instead, and that might be a better way of doing it, create and independent layer or even a diagram and copy the layout of the pattern layer into the instance layer. That, however, requires more work.)
+
+<img src="" />
+
+### pdiPattern
+
+### pdiInstantiation
+
+### Filters
+
+### ModelChangeTrigger, Automatically activate a filter
+
+### ModelChangeTrigger, Automatically deactivate a (conflicting) layer
+
+### External Java Action
 
 TODO: ...
